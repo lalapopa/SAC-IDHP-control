@@ -1,27 +1,17 @@
 import copy
 import csv
 import json
-import time
-import random
-import shutil
 import sys
 import os
 from termcolor import colored
-from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
-import signal
-from tqdm import tqdm
-from tasks.tracking_attitude_long import TrackAttitudeLong
 
-from tools import set_plot_styles, nMAE, nRMSE
+from tools import set_plot_styles, nMAE
 from tasks import TrackAttitude
 from envs import Citation
 
 from agents import SAC
-from agents.sac import CallbackSAC
-from tools import plot_training, create_dir_time, set_random_seed
-from tools.plotting import plot_training_batch, plot_weights_sac
+from tools import set_random_seed
 from tensorflow.python.ops.numpy_ops import np_config
 
 from tools.utils import d2r
@@ -68,54 +58,6 @@ def main(save_dir=None):
 
     # Trained agent:
     evaluate("trained/SAC_citation_tracking_attitude_1659223622/496000")
-
-    # Trained batch
-    # plot_training_batch(
-    #     [
-    #         "trained/SAC_citation_tracking_attitude_1659223622",
-    #         "trained/SAC_citation_tracking_attitude_1659223623",
-    #         "trained/SAC_citation_tracking_attitude_1659223621",
-    #         "trained/SAC_citation_tracking_attitude_1659223620",
-    #         "trained/SAC_citation_tracking_attitude_1659223619",
-    #     ]
-    # )
-
-    # [2:59:44<00:00, 92.72it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-261, return_best=-184, nmae_best=5.51%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223622/best_eval_r", find_best=True, find_best_extensive=True)
-    # [2:52:11<00:00, 96.79it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-299, return_best=-206, nmae_best=6.35%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223623/best_eval_r", find_best=True, find_best_extensive=True)
-    # [3:01:47<00:00, 91.68it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-318, return_best=-201, nmae_best=6.24%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223621/best_eval_r", find_best=True, find_best_extensive=True)
-    # [2:53:49<00:00, 95.88it/s, ep=501, crashes=2, crashes_eval=2, return_avg=-295, return_best=-214, nmae_best=6.64%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223620/best_eval_r", find_best=True, find_best_extensive=True)
-    # [2:53:44<00:00, 95.93it/s, ep=500, crashes=0, crashes_eval=1, return_avg=-253, return_best=-199, nmae_best=5.84%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223619/best_eval_r", find_best=True, find_best_extensive=True)
-
-    # Trained agent:
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223627/726000")
-
-    # Trained batch:
-    # plot_training_batch(
-    #     [
-    #         "trained/SAC_citation_tracking_attitude_1659223631",
-    #         "trained/SAC_citation_tracking_attitude_1659223628",
-    #         "trained/SAC_citation_tracking_attitude_1659223630",
-    #         "trained/SAC_citation_tracking_attitude_1659223629",
-    #         "trained/SAC_citation_tracking_attitude_1659223627",
-    #     ]
-    # )
-
-    # [3:02:46<00:00, 91.19it/s, ep=500, crashes=0, crashes_eval=1, return_avg=-258, return_best=-188, nmae_best=5.82%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223631/best_eval_r", find_best=True, find_best_extensive=True)
-    # [2:58:46<00:00, 93.23it/s, ep=501, crashes=2, crashes_eval=5, return_avg=-197, return_best=-173, nmae_best=5.27%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223628/best_eval_r", find_best=True, find_best_extensive=True)
-    # [3:01:47<00:00, 91.68it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-272, return_best=-229, nmae_best=7.13%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223630/best_eval_r", find_best=True, find_best_extensive=True)
-    # [3:02:25<00:00, 91.36it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-228, return_best=-186, nmae_best=5.63%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223629/best_eval_r", find_best=True, find_best_extensive=True)
-    # [2:55:42<00:00, 94.85it/s, ep=500, crashes=0, crashes_eval=0, return_avg=-220, return_best=-168, nmae_best=5.13%]
-    # evaluate("trained/SAC_citation_tracking_attitude_1659223627/best_eval_r", find_best=True, find_best_extensive=True)
-
     input()
 
 

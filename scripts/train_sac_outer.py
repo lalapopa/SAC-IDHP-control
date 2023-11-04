@@ -1,24 +1,17 @@
 import copy
 import json
-import time
 import random
-import shutil
 import sys
 import os
-import numpy as np
-from termcolor import colored
-import pandas as pd
-from tqdm import tqdm
 from envs.citation_attitude import CitationAttitude
-from envs.citation_attitude_idhpsac import CitationAttitudeHybrid
 from tasks.tracking_altitude import TrackAltitude
 from tensorflow.python.ops.numpy_ops import np_config
-from tools import set_plot_styles, nMAE
+from tools import set_plot_styles
 
 from agents import SAC
 from tools.utils import d2r
 from agents.sac import CallbackSAC
-from tools import plot_training, create_dir_time, set_random_seed
+from tools import create_dir_time, set_random_seed
 from tools.plotting import plot_incremental_model, plot_training_batch, plot_weights_and_model, plot_weights_idhp
 
 set_plot_styles()
@@ -122,15 +115,12 @@ def train(inner_save_dir):
     """
 
     # Config
-    configfile = open(os.path.join(inner_save_dir, "config.json"), "r")
-    config_agent_inner = json.load(configfile)
     config_agent = copy.deepcopy(CONFIG_AGENT_SAC)
     config_agent["agent_inner"] = inner_save_dir
     config_env = copy.deepcopy(CONFIG_ENV_CITATION)
     config_task = copy.deepcopy(CONFIG_TASK_ALTITUDE)
 
     # Randomize
-    # seed = config_agent_inner["seed"]
     seed = random.randrange(sys.maxsize)
     config_agent["seed"] = seed
     config_env["seed"] = seed
@@ -158,10 +148,10 @@ def train(inner_save_dir):
 
     # Success
     if success:
-        print(f"Success")
+        print("Success")
     # Crash restart
     else:
-        print(f"Crashed")
+        print("Crashed")
         train()
 
     # Save

@@ -1,29 +1,16 @@
 import copy
-import csv
-import json
-import time
 import random
-import shutil
 import sys
 import os
-from termcolor import colored
-from matplotlib import pyplot as plt
-import numpy as np
-import pandas as pd
-import signal
-from tqdm import tqdm
-from tasks.tracking_attitude_long import TrackAttitudeLong
 
-from tools import set_plot_styles, nMAE, nRMSE
+from tools import set_plot_styles
 from tasks import TrackAttitude
 from envs import Citation
 
 from agents import SAC
 from agents.sac import CallbackSAC
-from tools import plot_training, create_dir_time, set_random_seed
-from tools.plotting import plot_training_batch, plot_weights_sac
+from tools import create_dir_time, set_random_seed
 from tensorflow.python.ops.numpy_ops import np_config
-
 from tools.utils import d2r
 
 set_plot_styles()
@@ -118,7 +105,11 @@ def train():
 
     # Training callback
     save_dir = create_dir_time(f"trained/SAC_{env}_{task}")
-    callback = CallbackSAC(task_eval=task_eval, nmae_thresh=0.1, save_dir=save_dir)
+    callback = CallbackSAC(
+        task_eval=task_eval,
+        nmae_thresh=0.1,
+        save_dir=save_dir,
+    )
     print("Training SAC")
     print(f"Saving to {save_dir}")
 
@@ -127,10 +118,10 @@ def train():
 
     # Success
     if success:
-        print(f"Success")
+        print("Success")
     # Crash restart
     else:
-        print(f"Crashed")
+        print("Crashed")
         train()
 
     # Save

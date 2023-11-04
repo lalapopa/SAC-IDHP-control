@@ -9,7 +9,6 @@ class TrackingTask(ABC):
     """
 
     def __init__(self, config):
-
         # Time vector
         self.config = config
         self.T = config["T"]

@@ -1,5 +1,4 @@
 import numpy as np
-import random
 
 from tools import d2r
 from tasks import TrackingTask
@@ -22,7 +21,6 @@ class TrackAttitudeLat(TrackingTask):
         self.set_tracking_range()
 
     def set_tracking_ref(self):
-
         # Pitch angle reference signal: zero
         self.tracking_ref["theta"] = 0 * self.timevec
 
@@ -38,13 +36,11 @@ class TrackAttitudeLat(TrackingTask):
         self.tracking_ref["beta"] = A_phi * np.exp(-self.timevec / tc) * np.sin(f_phi * self.timevec)
 
     def set_tracking_scale(self):
-
         self.tracking_scale["theta"] = self.config["tracking_scale"]["theta"]
         self.tracking_scale["phi"] = self.config["tracking_scale"]["phi"]
         self.tracking_scale["beta"] = self.config["tracking_scale"]["beta"]
 
     def set_tracking_range(self):
-
         self.tracking_range["theta"] = d2r(5.0) - d2r(-5.0)
         self.tracking_range["phi"] = self.tracking_ref["phi"].max() - self.tracking_ref["phi"].min()
         # self.tracking_range["beta"] = d2r(5.0) - d2r(-5.0)

@@ -1,20 +1,13 @@
 import json
 import os
-import random
-import sys
-import copy
-from matplotlib import pyplot as plt
-import numpy as np
 from tensorflow.python.ops.numpy_ops import np_config
 
 from envs.citation import Citation
 from tasks import TrackAttitudeLong, TrackAttitude
-from tasks.tracking_attitude_lat import TrackAttitudeLat
 from tools import set_plot_styles
 from agents import SAC, IDHPSAC_DC
-from tools import create_dir, plot_weights_idhp, plot_incremental_model
 from tools.plotting import plot_weights_and_model
-from tools.utils import create_dir_time, d2r, nMAE, set_random_seed
+from tools.utils import nMAE, set_random_seed
 
 # Config
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
@@ -27,7 +20,6 @@ set_plot_styles()
 def main():
     # Evaluate trained agent
     evaluate("trained/IDHPSAC_DC_citation_tracking_attitude_1659358080")
-
     input()
 
 

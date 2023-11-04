@@ -30,6 +30,11 @@ Authors: [Casper Teirlinck](https://github.com/CasperTeirlinck) &nbsp; [![Linked
    ```bash
    python setup.py develop
    ```
+3. Just install using pip: 
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 

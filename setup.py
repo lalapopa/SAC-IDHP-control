@@ -10,7 +10,6 @@ with open("requirements.txt", "r") as f:
 
 with open("README.md", "r") as f:
     readme = f.read()
-
 setup(
     name="RLFC-SACIDHP",
     author="C.Teirlinck",
@@ -18,4 +17,5 @@ setup(
     long_description=readme,
     packages=find_packages(),
     install_requires=install_requires,
-)
+    )
+
