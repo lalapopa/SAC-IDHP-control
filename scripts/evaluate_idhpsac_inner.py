@@ -1,20 +1,12 @@
 import json
 import os
-import random
-import sys
-import tensorflow.keras as keras
-import time
-import copy
-from matplotlib import pyplot as plt
-import numpy as np
+
 from envs.citation import Citation
 from tasks.tracking_attitude import TrackAttitude
-
 from tools import set_plot_styles
 from agents import IDHPSAC, SAC
-from tools import create_dir, plot_weights_idhp, plot_incremental_model
 from tools.plotting import plot_weights_and_model
-from tools.utils import create_dir_time, d2r, nMAE, set_random_seed
+from tools.utils import nMAE, set_random_seed
 from tensorflow.python.ops.numpy_ops import np_config
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"

@@ -35,7 +35,7 @@ CONFIG_ENV_CITATION = {
     "sensor_noise": False,
 }
 CONFIG_TASK_ATTITUDE = {
-    "T": 20,  # task duration
+    "T": 30,  # task duration
     "dt": 0.01,  # time-step
     "tracking_scale": {  # tracking scaling factors
         "theta": 1 / d2r(30),
@@ -78,7 +78,6 @@ def evaluate(save_dir, find_best=False, find_best_extensive=False):
     set_random_seed(seed)
 
     # Task
-    config_task["T"] = 60
     task = TrackAttitude(config_task, evaluate_hard=True)
     # task = TrackAttitude(config_task, evaluate=True)
     # task = TrackAttitude(config_task, train_online=True)

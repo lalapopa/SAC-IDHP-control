@@ -7,7 +7,6 @@ import numpy as np
 import gym
 from scipy.signal import butter, lfilter
 from gym.spaces import Box
-import json
 
 
 def set_random_seed(seed):
