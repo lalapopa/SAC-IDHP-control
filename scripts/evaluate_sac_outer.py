@@ -200,14 +200,15 @@ def evaluate_idhpsac(save_dir, save_dir_idhpsac):
 
     # config_agent_idhpsac["model"]["eps_thresh"][1] = 0.001  # q
 
-    # config_agent_idhpsac["lp_enable"] = True
-    # config_agent_idhpsac["lp_w0"] = d2r(40)
+#    config_agent_idhpsac["lp_enable"] = True
+#    config_agent_idhpsac["lp_w0"] = d2r(40)
 
-    config_env["failure"] = "cg_shift"
-    config_env["failure_time"] = 30
+#    config_env["failure"] = "da_reduce"
+#    config_env["failure_time"] = 30
+#    config_env["failure"] = "cg_shift"
     # config_env["control_disturbance"] = task.get_control_disturbance()
-    # config_env["atm_disturbance"] = True
-    # config_env["sensor_noise"] = True
+    config_env["atm_disturbance"] = True
+#    config_env["sensor_noise"] = True
     env = CitationAttitudeHybrid(config_env, task.inner, save_dir_idhpsac, config_agent_idhpsac, dt=config_task["dt"])
 
     # Load agent

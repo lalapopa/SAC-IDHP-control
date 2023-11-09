@@ -100,7 +100,7 @@ CONFIG_TASK_ATTITUDE = {
 
 def main():
     # Train
-    train()
+#    train()
 
     # Batch trainings:
 
@@ -120,62 +120,62 @@ def main():
     # => 48.00% total success rate
 
     # plot
-    # config_task = copy.deepcopy(CONFIG_TASK_ATTITUDE)
-    # config_task["T"] = 60
-    # task = TrackAttitude(config_task, train_online=True)
+    config_task = copy.deepcopy(CONFIG_TASK_ATTITUDE)
+    config_task["T"] = 60
+    task = TrackAttitude(config_task, train_online=True)
 
-    # config_env = copy.deepcopy(CONFIG_ENV_CITATION)
-    # env = Citation(config_env, dt=config_task["dt"])
-    # env.render_batch(
-    #     task,
-    #     save_dirs=[
-    #         # std 0.05
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425402",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425407",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425401",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425406",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425409",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425405",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425408",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425403",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659425404",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427751",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427747",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427744",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427745",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427749",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427742",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427743",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427748",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427750",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659427746",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428699",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428702",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428704",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428700",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428703",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428701",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428698",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428696",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428695",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428873",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428867",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428872",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428869",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428868",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428871",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428874",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428865",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428866",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428993",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428992",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428991",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428995",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428990",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428988",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428987",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428994",
-    #         "trained/IDHPSAC_citation_tracking_attitude_1659428986",
+    config_env = copy.deepcopy(CONFIG_ENV_CITATION)
+    env = Citation(config_env, dt=config_task["dt"])
+    env.render_batch(
+         task,
+         save_dirs=[
+             # std 0.05
+             "trained/IDHPSAC_citation_tracking_attitude_1659425402",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425407",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425401",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425406",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425409",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425405",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425408",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425403",
+             "trained/IDHPSAC_citation_tracking_attitude_1659425404",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427751",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427747",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427744",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427745",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427749",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427742",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427743",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427748",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427750",
+             "trained/IDHPSAC_citation_tracking_attitude_1659427746",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428699",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428702",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428704",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428700",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428703",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428701",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428698",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428696",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428695",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428873",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428867",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428872",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428869",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428868",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428871",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428874",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428865",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428866",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428993",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428992",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428991",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428995",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428990",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428988",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428987",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428994",
+             "trained/IDHPSAC_citation_tracking_attitude_1659428986",
     #         # std 0.01
     #         # "trained/IDHPSAC_citation_tracking_attitude_1659430132",
     #         # "trained/IDHPSAC_citation_tracking_attitude_1659430135",
@@ -262,8 +262,8 @@ def main():
     #         # "trained/IDHPSAC_citation_tracking_attitude_1659431916",
     #         # "trained/IDHPSAC_citation_tracking_attitude_1659431915",
     #         # "trained/IDHPSAC_citation_tracking_attitude_1659431914",
-    #     ],
-    # )
+            ],
+    )
 
     input()
 
@@ -333,7 +333,7 @@ def train():
     env.render(task, env_sac=env_sac)
 
     # Plot weights
-    # plot_weights_and_model(agent, task, zoom_F=[-1.5, 1.0], zoom_G=[-0.35, 0.05])
+    plot_weights_and_model(agent, task, zoom_F=[-1.5, 1.0], zoom_G=[-0.35, 0.05])
 
 
 if __name__ == "__main__":

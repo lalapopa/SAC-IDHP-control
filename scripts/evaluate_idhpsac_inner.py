@@ -44,7 +44,7 @@ def evaluate(save_dir):
     # Task
     config_task["T"] = 60
     # task = TrackAttitude(config_task, evaluate=True)
-    task = TrackAttitude(config_task, evaluate_hard=True)
+    task = TrackAttitude(config_task, evaluate=True)
 
     # Environment
     config_env["failure"] = "ht_reduce"
