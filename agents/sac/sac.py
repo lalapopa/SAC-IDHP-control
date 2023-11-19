@@ -146,7 +146,6 @@ class SAC(Agent):
         else:
             rnge = range(self.task.num_timesteps)
         for t in rnge:
-
             # Get action
             action_pi = self.get_action(s[np.newaxis], deterministic=True)
             if self.incr:
@@ -235,7 +234,6 @@ class SAC(Agent):
 
             # Next episode
             if done:
-
                 # Handle done
                 if not crash:
                     if callback is not None:
@@ -332,7 +330,6 @@ class SAC(Agent):
 
         # Compute losses
         with tf.GradientTape(persistent=True) as tape:
-
             # Generate new actions
             action_pi, action_mean, log_prob = self.actor.sample(s_batch, return_mean=True)
             action_pi_next, action_mean_next, log_prob_next = self.actor.sample(s_next_batch, return_mean=True)

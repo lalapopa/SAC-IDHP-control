@@ -63,11 +63,14 @@ def nMAE(agent, env, cascaded=False):
         y_ref = agent.tracking_ref
         y_range = np.array([agent.task.tracking_range[_] for _ in agent.tracking_descr])
 
-    mae_vec = np.mean(np.abs(y - y_ref), axis=1)
-    nmae_vec = mae_vec / y_range
-    nmae = np.mean(nmae_vec)
+    print(f"nMAE {agent}, {np.mean(y_ref) =}, {np.mean(y) =}, {(y_range) =}"),
 
-    return nmae
+
+    mae_vec = np.mean(np.abs(y - y_ref), axis=1)
+    print(mae_vec)
+    nmae_vec = mae_vec / y_range
+#    nmae = np.mean(nmae_vec)
+    return nmae_vec 
 
 
 def nRMSE(agent, env):

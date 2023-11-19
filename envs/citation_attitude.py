@@ -92,7 +92,7 @@ class CitationAttitude(gym.Env):
         """
 
         # Action is internal reference signal
-        theta_ref = action
+        theta_ref = action 
 
         # Sample external tracking reference signal
         tracking_ref_inner = self.agent_inner.tracking_ref[:, self.t]

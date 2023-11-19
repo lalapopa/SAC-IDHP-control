@@ -621,7 +621,7 @@ class Citation(gym.Env):
                     else:
                         yr = tracking_ref_internal[state_descr][:idx_end]
                     (line_ref_internal,) = ax.plot(
-                        task.timevec[:idx_end], yr, linestyle="-.", color="k", label=rf"${state_label}^{{r}}$"
+                        task.timevec[:idx_end], yr, linestyle="-.", color="r", label=rf"${state_label}^{{r}}$"
                     )
                     # ax.legend(bbox_to_anchor=(1, 1), loc=1)
 
@@ -810,7 +810,7 @@ class Citation(gym.Env):
             "SAC-only",
             "state Simulink",
             "reference",
-            "reference (internal)",
+            "reference (internal) ?",
             # "action",
             "control disturbance",
         ]
