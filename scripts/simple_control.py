@@ -2,16 +2,17 @@ import copy
 import json
 import os
 import numpy as np
+import random
 from tqdm import tqdm
 
 from envs.citation import Citation
-from envs.citation_attitude import CitationAttitude
 from tasks.tracking_test import TrackAltitudeEdit
-from tools import set_plot_styles, nMAE
+from tools import set_plot_styles
 
-from agents import SAC
 from tools.utils import d2r
-from tools import set_random_seed
+
+set_plot_styles()
+random.seed(322)
 
 CONFIG_ENV_CITATION = {
     "seed": None,
@@ -57,7 +58,7 @@ def main():
 
     for t in tqdm(range(2000)):  # TODO: Play with this function
         # Get action
-        action_env = np.array([0, 0, 0])
+        action_env = np.radians(np.array([random.uniform(-10, 10), 0, 0]))  # elevator, aileron, rudder
 
         # Take action
         obs, _ = env.step(action_env)
